@@ -22,9 +22,9 @@ body {
 .reveal {
   font-family: "Open Sans", sans-serif;
   font-size: 30px;
-  font-weight: 200;
-  letter-spacing: -0.02em;
+  /*font-weight: 200;*/
   color: #eeeeee;
+  text-shadow: 0 0 .1em rgba(0, 0, 0, .7);
 }
 
 ::selection {
@@ -47,7 +47,6 @@ body {
   line-height: 0.9em;
   letter-spacing: -0.03em;
   text-transform: none;
-  text-shadow: none;
 }
 
 .reveal h1 {
