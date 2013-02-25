@@ -10,10 +10,17 @@
 body {
   background: #111111;
   background-color: #111111;
+  background: #000 url(../../images/LightningAboveCloudsView.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='#{@img_url}', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='#{@img_url}', sizingMethod='scale')";
 }
 
 .reveal {
-  font-family: "Open Sans", Times, "Times New Roman", serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 30px;
   font-weight: 200;
   letter-spacing: -0.02em;
