@@ -1,6 +1,5 @@
-# reveal.js Skeleton
+# Rails & Sessions
 
-This is a simple skeleton for creating reveal.js projects. A tiny bit of cruft
-is removed.
+Just go [look at the slides](http://cwdg.github.com/Rails-Session-Talk).
 
 For dependencies, setup and usage instructions see [the reveal.js README](REVEAL-JS-README.md).
