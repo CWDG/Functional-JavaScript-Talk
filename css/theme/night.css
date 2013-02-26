@@ -1,4 +1,5 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic);
+@import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700|Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,300,800&subset=latin,latin-ext);
+
 /**
  * Black theme for reveal.js.
  *
@@ -36,10 +37,12 @@ body {
 .reveal pre {
   font-size: 1em;
   line-height: 1.4em;
+  font-family: 'Inconsolata', monospace;
 }
 
 .reveal pre code {
   padding: .4em;
+  font-family: 'Inconsolata', monospace;
 }
 
 /*********************************************
