@@ -56,7 +56,17 @@
           <section data-markdown>
             ## It's a Hash
 
-            - Yeah, that was easy
+                session[:user_here_before] = true
+
+            Yeah, that was easy
+          </section>
+          <section data-markdown>
+            ## BS Example Code
+
+            <pre><code class="ruby"># Invoking hand-wavy authentication
+            user = User.where(username: params[:username]).first
+            session[:user_id] = user.id
+            </code></pre>
           </section>
         </section>
         <section>
@@ -88,6 +98,17 @@
             - Delicious
             - Dangerous?
           </section>
+        </section>
+        <section data-markdown>
+          # And the winner is
+          <br />
+          <h2 class="fragment">COOOOKIEEES</h2>
+        </section>
+        <section id="you-disagree" data-markdown>
+          ## But if you disagree
+
+              # config/initializers/session_store.rb
+              config.session_store :my_custom_store
         </section>
         <section data-markdown>
           ## I dumb, this page smart
