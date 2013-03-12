@@ -28,92 +28,20 @@
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
         <section data-markdown>
-          # Sessions &amp; Rails
-
-          Keeping state between requests
+          # An Introduction to Functioal Javascript with Clojure
         </section>
         <section data-markdown>
-          # Sesswho?
+          ## This talk is *NOT* about
+
+          * The DOM
+          * jQuery
+          * anything UI related
         </section>
         <section data-markdown>
-          ## HTTP ain't Stateful
+          ## This talk *IS* about
 
-          - TCP has sessions
-          - HTTP has cookies
-
-          [http://en.wikipedia.org/wiki/REST#Constraints](http://en.wikipedia.org/wiki/REST#Constraints)
-        </section>
-        <section data-markdown>
-          ## &hellip; and I care why?
-
-          - You might not.
-          - You probably do.
-        </section>
-        <section>
-          <section data-markdown>
-            # Doing it with Rails
-          </section>
-          <section data-markdown>
-            ## It's a Hash
-
-                session[:user_here_before] = true
-
-            Yeah, that was easy
-          </section>
-          <section data-markdown>
-            ## BS Example Code
-
-            <pre><code class="ruby"># Invoking hand-wavy authentication
-            user = User.where(username: params[:username]).first
-            session[:user_id] = user.id
-            </code></pre>
-          </section>
-        </section>
-        <section>
-          <section data-state="alert" data-markdown>
-            # Implementation details that actually matter
-          </section>
-          <section data-state="blackout" data-markdown>
-            ## Whoa, calm down
-          </section>
-        </section>
-        <section data-markdown>
-          ## Memory
-
-          - Ye Ole' standard
-          - Fast, easy, doesn't scale
-        </section>
-        <section data-markdown>
-          ## Remote datastore
-
-          - Mongo, Memcache, MySQl, etc.
-          - Distributed (hopefully)
-          - Database requests, ewww
-        </section>
-        <section>
-          <section data-markdown>
-            ## Cookies
-
-            - Super Duper Distributed!
-            - Delicious
-            - Dangerous?
-          </section>
-        </section>
-        <section data-markdown>
-          # And the winner is
-          <br />
-          <h2 class="fragment">COOOOKIEEES</h2>
-        </section>
-        <section id="you-disagree" data-markdown>
-          ## But if you disagree
-
-              # config/initializers/session_store.rb
-              config.session_store :my_custom_store
-        </section>
-        <section data-markdown>
-          ## I dumb, this page smart
-
-          [http://guides.rubyonrails.org/security.html#sessions](http://guides.rubyonrails.org/security.html#sessions)
+          * Syntax
+          * Functional programming
         </section>
       </div>
     </div>
