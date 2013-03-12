@@ -19,6 +19,9 @@ If not specific assume I'm talking about Js.
 2.  What this talk is not about
 3.  What this talk is about
 4.  Syntax
-5.  Functions In General (pure and sideaffecty) (CHECK)
-6.  Functions in Clojure
-7.  Functions in Javascript
+5.  Scope
+6.  Functions In General (pure and sideaffecty) (CHECK)
+7.  Functions in Clojure
+8.  Functions in Javascript
+9.  Module Pattern
+10. Closures
