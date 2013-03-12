@@ -35,18 +35,143 @@
 
           * The DOM
           * jQuery
-          * anything UI related
+          * Inheritence
         </section>
         <section data-markdown>
           ## This talk *IS* about
 
+          * Types
           * Syntax
           * Functional programming
+        </section>
+        <section data-markdown>
+          ## Let's Jump into it
+        </section>
+        <section>
+          <section data-markdown>
+            # Types
+          </section>
+          <section data-markdown>
+            ## Objects
+
+            They are everywhere
+          </section>
+          <section data-markdown>
+            ## Pick the objects
+
+                undefined
+                null
+                "Hello World"
+                1
+                new Integer(1)
+                new Object()
+                {}
+                new Array()
+                []
+                function (x) { return x; }
+          </section>
+        </section>
+        <section>
+          <section data-markdown>
+            # Syntax
+          </section>
+          <section data-markdown>
+            ## if-else
+
+            C-style syntax
+
+                if (x == y) {
+                   // do something
+                } else {
+                   // do something else
+                }
+          </section>
+        </section>
+        <section data-markdown>
+          # Challenge Time
+        </section>
+        <section>
+          <section data-markdown>
+            ## Replace if, else
+
+            * Use an Object, true, false and function(s)
+          </sectiotn>
+          <section data-markdown>
+            ### Original
+
+                if (a == 'blarg') {
+                    console.log('Hello');
+                } else {
+                    console.log('Goodbye');
+                }
+          </section>
+          <section data-markdown>
+            ### Answer
+
+            <pre><code class="javascript">console.log({
+              true: 'Hello',
+              false: 'Goodbye'
+            }[a == 'blarg']);
+            </code></pre>
+          </section>
+          <section data-markdown>
+            ### Original
+
+                var x, y;
+                if (a == 'blarg') {
+                   x = 2;
+                   y = [z * 5];
+                } else {
+                   y = 3;
+                   x = [z / 2];
+                }
+          </section>
+          <section data-markdown>
+            ### Answer
+
+                {
+                  true: function () {
+                    x = 2;
+                    y = [z * 5];
+                  },
+                  false: function () {
+                    y = 3;
+                    x = [z / 2];
+                  }
+                }[a == 'blarg']();
+          </section>
+          <section data-markdown>
+            ### Original
+
+                var returnValue;
+                swtich(val) {
+                  case 2:
+                    returnValue = 'A'
+                    break;
+                  case 6:
+                    returnValue = 'B'
+                    break;
+                  case 9:
+                    returnValue = 'B'
+                    break;
+                  default:
+                    returnValue = null;
+                }
+                return returnValue;
+          </section>
+          <section data-markdown>
+            ### Answer
+
+                {2: 'A', 6: 'B', 9: 'C'}[val]
+
+            Well, almost...
+          </section>
         </section>
       </div>
     </div>
     <script src="lib/js/head.min.js"></script>
     <script src="js/reveal.min.js"></script>
+    <script src="js/scratch-pad.js"></script>
     <script>
       // Full list of configuration options available here:
       // https://github.com/hakimel/reveal.js#configuration
