@@ -40,7 +40,7 @@ body {
 }
 
 .reveal pre code {
-  padding: .4em;
+  padding: 0 .4em;
   font-family: 'Inconsolata', monospace;
 }
 
