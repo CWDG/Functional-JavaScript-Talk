@@ -3,7 +3,7 @@
 
   Sample.switchCase = function (x) {
     var returnValue;
-    swtich(val) {
+    switch(val) {
       case 2:
         returnValue = 'A'
         break;
