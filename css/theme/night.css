@@ -35,8 +35,12 @@ body {
 
 .reveal pre {
   font-size: 1em;
-  line-height: 1.4em;
+  line-height: 1.3em;
   font-family: 'Inconsolata', monospace;
+}
+
+.reveal pre.compact {
+  font-size: .8em;
 }
 
 .reveal pre code {
