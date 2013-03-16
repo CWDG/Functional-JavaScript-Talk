@@ -28,7 +28,17 @@
     return sum;
   };
 
+  Sample.twoDigits = function (x) {
+    var z = x * 10;
+    return function (y) {
+      return z + y;
+    }
+  };
+
   return context.Sample = Sample;
 
-  Sample.hashAccess = {2: 'A', 6: 'B', 9: 'C', '2': 'D'}[val];
+  var val = 2;
+  Sample.hash = {2: 'A', 6: 'B', 9: 'C', '2': 'D'};
+  Sample.hashAccess1 = {2: 'A', 6: 'B', 9: 'C', '2': 'D'}[val];
+  Sample.hashAccess2 = Sample.hash[val];
 })(this)
