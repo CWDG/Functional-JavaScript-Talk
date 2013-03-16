@@ -1,4 +1,4 @@
-# An Introduction to Functional JavaScript with Clojure
+# An Introduction to Functional JavaScript
 
 Just go [look at the slides](http://cwdg.github.com/Functional-JavaScript-Talk).
 
