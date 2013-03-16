@@ -49,7 +49,7 @@
         </section>
         <section>
           <section data-markdown>
-            # Types
+            # Types &amp; Truthiness
           </section>
           <section data-markdown>
             ## Objects
@@ -69,6 +69,21 @@
                 new Array()
                 []
                 function (x) { return x; }
+          </section>
+          <section data-markdown>
+            ## Comparisons and Truthiness
+
+                undefined == null // → true
+                undefined === null // → false
+                0 == false // → true
+                1 == true // → true
+                '0' == false // → true
+                '1' == true // → true
+                '' == false // → true
+                'hello world' == false // → false
+                'hello world' == true // → false
+
+            if conditions are like `!= false`
           </section>
         </section>
         <section>
