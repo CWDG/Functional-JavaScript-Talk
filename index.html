@@ -152,7 +152,7 @@
             ## for *(each)*
 
                 for (var index in obj) {
-                  // herp derp
+                  // what do you think index is?
                 }
           </section>
           <section data-markdown>
@@ -215,22 +215,7 @@
             *- Ryan McGowan*
           </section>
           <section data-markdown>
-            ## What the func?!
-                var foo = function (bar) {
-                  return function (baz) {
-                    return function (derp) {
-                      return bar.callback(baz, derp, bar.value);
-                    }:
-                  };
-                };
-                var data = {
-                  callback: function (x, y, z) { return [x, y, z].join(' '); },
-                  value: 'func?!'
-                };
-                foo(data)("What")("the"); // → "What the func?!"
-          </section>
-          <section data-markdown>
-            ## Quick Examples
+            ## Quick Example
 
                 // Assignment
                 var coolFunc1 = function () { return "Sooo coool"; };
@@ -239,6 +224,22 @@
                   // do some stuff and then finally &hellip;
                   func();
                 };
+          </section>
+          <section data-markdown>
+            ## What the func?!
+            <pre class="compact"><code class="javascript">var foo = function (bar) {
+              return function (baz) {
+                return function (derp) {
+                  return bar.callback(baz, derp, bar.value);
+                }:
+              };
+            };
+            var data = {
+              callback: function (x, y, z) { return [x, y, z].join(' '); },
+              value: 'func?!'
+            };
+            foo(data)("What")("the"); // → "What the func?!"
+            </code></pre>
           </section>
         </section>
         <section>
@@ -257,6 +258,58 @@
             * Reference To Function
             * Referencing Environment
               * Table of references to free variables
+          </section>
+        </section>
+        <section>
+          <section data-markdown>
+            # Underscore.js
+            [http://underscorejs.org/](http://underscorejs.org/)
+          </section>
+          <section data-markdown>
+            ## map
+
+            ##### Clojure
+            <pre><code class="clojure">(map (parital + 1) [1 2 3])
+            </code></pre>
+            ##### JavaScript
+            <pre><code class="javascript">_.map([1, 2, 3], function (num) {
+              return num + 1;
+            });
+            </code></pre>
+          </section>
+          <section data-markdown>
+            ## reduce
+
+            ##### Clojure
+            <pre><code class="clojure">(reduce * [2 3 4])
+            </code></pre>
+            ##### JavaScript
+            <pre><code class="javascript">_.reduce([2, 3, 4], function (product, num) {
+              return product * num;
+            });
+            </code></pre>
+          </section>
+          <section data-markdown>
+            ## chain
+
+            ##### Clojure
+            <pre><code class="clojure">(-&gt;&gt;
+              [1 2 3]
+              (map (partial + 1))
+              (reduce *))
+            </code></pre>
+            ##### JavaScript
+            <pre><code class="javascript">_.chain([2, 3, 4]).map(function (num) {
+              return num + 1;
+            }).reduce(function (product, num) {
+              return product * num;
+            }).value();
+            </code></pre>
+          </section>
+          <section data-markdown>
+            ## It's your turn
+
+            Let's make lambda.js
           </section>
         </section>
         <section>

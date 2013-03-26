@@ -1,7 +1,7 @@
 (function (context) {
   var Sample = {};
 
-  Sample.switchCase = function (x) {
+  Sample.switchCase = function (val) {
     var returnValue;
     switch(val) {
       case 2:
