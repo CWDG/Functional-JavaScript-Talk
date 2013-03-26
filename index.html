@@ -42,7 +42,7 @@
 
           * Types
           * Syntax
-          * Functional programming
+          * Functional programming (mostly this)
         </section>
         <section data-markdown>
           ## Let's Jump into it
@@ -59,6 +59,8 @@
           <section data-markdown>
             ## Pick the objects
 
+                true
+                false
                 undefined
                 null
                 "Hello World"
@@ -69,6 +71,9 @@
                 new Array()
                 []
                 function (x) { return x; }
+          </section>
+          <section data-markdown>
+            # Classfree
           </section>
           <section data-markdown>
             ## Comparisons and Truthiness
@@ -183,8 +188,7 @@
           <section data-markdown>
             ## Do I need scope?
 
-            * privacy
-            * namespacing
+            * It's a tool, not a restriction
             * closures are cool
           </section>
         </section>
@@ -205,10 +209,25 @@
             ## First class
 
             <blockquote>
-              We can assign, pass in, return and store functions in data
-              structures like we do with other values.
+              Functions can be assigned, passed in, returned and stored in data
+              structures like other objects.
             </blockquote>
             *- Ryan McGowan*
+          </section>
+          <section data-markdown>
+            ## What the func?!
+                var foo = function (bar) {
+                  return function (baz) {
+                    return function (derp) {
+                      return bar.callback(baz, derp, bar.value);
+                    }:
+                  };
+                };
+                var data = {
+                  callback: function (x, y, z) { return [x, y, z].join(' '); },
+                  value: 'func?!'
+                };
+                foo(data)("What")("the"); // → "What the func?!"
           </section>
           <section data-markdown>
             ## Quick Examples
@@ -238,6 +257,40 @@
             * Reference To Function
             * Referencing Environment
               * Table of references to free variables
+          </section>
+        </section>
+        <section>
+          <section data-markdown>
+            # Replacing partial
+          </section>
+          <section data-markdown>
+            ## Partials are cool
+
+            <pre><code class="clojure">(def plus-six (partial + 6))
+            (plus-six 10) ; → 16
+            </code></pre>
+          </section>
+          <section data-markdown>
+            ## Partials are cool
+
+            <pre><code class="clojure">(defn all-less-than-ten-lame [coll]
+              (every? (fn [item] (&lt; item 10)) coll))
+            ; Cooler
+            (def all-less-than-ten (partial every? (partial &gt; 10)))
+
+            (all-less-than-ten [1 2 3 4 5 8 2 2 7]) ; → true
+            (all-less-than-ten [1 2 3 4 5 8 11])    ; → false
+            </code></pre>
+          </section>
+          <section data-markdown>
+            ## Rember this?
+
+            <pre><code class="clojure">(defn two-numbers [x]
+              (partial + (* 10 x)))
+
+            ((two-numbers 6) 1) ; → 61
+            ((two-numbers 10) ((two-numbers 1) 6) 4) ; → 120
+            </code></pre>
           </section>
         </section>
         <section data-markdown>
@@ -323,7 +376,8 @@
           <section data-markdown>
             ### Answer
 
-                {2: 'A', 6: 'B', 9: 'C'}[val]
+            <pre class="compact"><code class="javascript">{2: 'A', 6: 'B', 9: 'C'}[val]
+            </code></pre>
 
             Well, almost...
           </section>
@@ -339,8 +393,40 @@
           <section data-markdown>
             ### Answer
 
-            Hoisting.
+            [Hoisting](http://www.adequatelygood.com/JavaScript-Scoping-and-Hoisting.html).
+
+            <pre class="compact"><code class="javascript">foo(); // TypeError "foo is not a function"
+            bar(); // valid
+            baz(); // TypeError "baz is not a function"
+            spam(); // ReferenceError "spam is not defined"
+
+            var foo = function () {}; // anonymous function expression ('foo' gets hoisted)
+            function bar() {}; // function declaration ('bar' and the function body get hoisted)
+            var baz = function spam() {}; // named function expression (only 'baz' gets hoisted)
+
+            foo(); // valid
+            bar(); // valid
+            baz(); // valid
+            spam(); // ReferenceError "spam is not defined"
+            </code></pre>
           </section>
+        </section>
+        <section data-markdown>
+          ## That's All Folks
+
+          ### Books/References
+
+          * [JavaScript: The Good Parts](http://shop.oreilly.com/product/9780596517748.do)
+          * [fun.js](http://blog.fogus.me/2013/03/20/fun-js/)
+          * [Some Stuff about Prototypes](http://yehudakatz.com/2011/08/12/understanding-prototypes-in-javascript/)
+
+          <br />
+          ### Me
+
+          Twitter: [Ryan_VM](https://twitter.com/Ryan_VM)
+
+          Github: [RyanMcG](https://github.com/RyanMcG)
+
         </section>
       </div>
     </div>
@@ -349,27 +435,27 @@
     <script src="js/scratch-pad.js"></script>
     <script>
       // Full list of configuration options available here:
-      // https://github.com/hakimel/reveal.js#configuration
-      Reveal.initialize({
-        controls: true,
-        progress: true,
-        history: true,
-        center: true,
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
 
-        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+      theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+      transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
 
-        // Optional libraries used to extend on reveal.js
-        dependencies: [
-          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-          // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
-        ]
-      });
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+        { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+      ]
+    });
     </script>
   </body>
 </html>
