@@ -66,15 +66,3 @@
 
   return context.Sample = Sample;
 })(this)
-
-Function.prototype.partial = function () {
-  // slice is shorter and I am a lazy.
-  var slice = Array.prototype.slice;
-  var func = this;
-  var args = slice.apply(arguments);
-
-  return function () {
-    debugger
-    return func.apply(this, args.concat(slice.apply(arguments)));
-  };
-};
