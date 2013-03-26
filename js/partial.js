@@ -15,27 +15,29 @@
     };
   };
 
-  Function.aprototype.partial = function () {
+  Function.prototype.apartial = function () {
     // TODO: Implement
   };
 
   Function.prototype.apartial = function (self) {
     var func = this;
-    var args = slice.apply(arguments, 1);
+    var args = slice.apply(arguments);
+    args = args.slice(1);
 
     return function () {
       return func.apply(self, args.concat(slice.apply(arguments)));
     };
   };
 
-  Function.object.partial = function (funcName) {
+  Object.prototype.partial = function (funcName) {
     // TODO: Implement
   };
 
-  Function.object.partial = function (funcName) {
+  Object.prototype.partial = function (funcName) {
     var func = this[funcName];
     var self = this;
-    var args = slice.apply(arguments, 1);
+    var args = slice.apply(arguments);
+    args = args.slice(1);
 
     return function () {
       return func.apply(self, args.concat(slice.apply(arguments)));
