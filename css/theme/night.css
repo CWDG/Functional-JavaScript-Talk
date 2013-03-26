@@ -1,51 +1,30 @@
-@import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700|Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,300,800&subset=latin,latin-ext);
-
+@import url(http://fonts.googleapis.com/css?family=Montserrat:700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic);
 /**
  * Black theme for reveal.js.
- *
+ * 
  * Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
  */
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #351631;
-  /*background: #000 url(../../images/LightningAboveCloudsView.png) no-repeat center center fixed;*/
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  /*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='#{@img_url}', sizingMethod='scale');*/
-  /*-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='#{@img_url}', sizingMethod='scale')";*/
+  background: #111111;
+  background-color: #111111;
 }
 
 .reveal {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans", Times, "Times New Roman", serif;
   font-size: 30px;
-  /*font-weight: 200;*/
-  color: #f0f0f0;
-  text-shadow: 0 0 .1em rgba(0, 0, 0, .7);
+  font-weight: 200;
+  letter-spacing: -0.02em;
+  color: #eeeeee;
 }
 
 ::selection {
   color: white;
   background: #e7ad52;
   text-shadow: none;
-}
-
-.reveal pre {
-  font-size: 1em;
-  line-height: 1.3em;
-  font-family: 'Inconsolata', monospace;
-}
-
-.reveal pre.compact {
-  font-size: .8em;
-}
-
-.reveal pre code {
-  padding: 0 .4em;
-  font-family: 'Inconsolata', monospace;
 }
 
 /*********************************************
@@ -58,10 +37,12 @@ body {
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  color: #f0f0f0;
-  line-height: 1em;
-  /*letter-spacing: -0.03em;*/
+  color: #eeeeee;
+  font-family: "Montserrat", Impact, sans-serif;
+  line-height: 0.9em;
+  letter-spacing: -0.03em;
   text-transform: none;
+  text-shadow: none;
 }
 
 .reveal h1 {
@@ -98,7 +79,7 @@ body {
 .reveal section img {
   margin: 15px 0px;
   background: rgba(255, 255, 255, 0.12);
-  border: 4px solid #f0f0f0;
+  border: 4px solid #eeeeee;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   -webkit-transition: all .2s linear;
   -moz-transition: all .2s linear;
