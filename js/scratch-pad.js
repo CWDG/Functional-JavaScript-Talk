@@ -35,6 +35,21 @@
     }
   };
 
+  Sample.whatTheFunc = function (bar) {
+    return function (baz) {
+      return function (derp) {
+        return bar.callback(baz, derp, bar.value);
+      };
+    };
+  };
+
+  Sample.whatTheFuncData = {
+    callback: function (x, y, z) { return [x, y, z].join(' '); },
+    value: 'func?!'
+  };
+
+  Sample.whatTheFuncOut = Sample.whatTheFunc(Sample.whatTheFuncData)('What')('the');
+
   return context.Sample = Sample;
 
   var val = 2;
