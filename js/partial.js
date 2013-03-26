@@ -3,10 +3,6 @@
   var slice = Array.prototype.slice;
 
   Function.prototype.partial = function () {
-    // TODO: Implement
-  };
-
-  Function.prototype.partial = function () {
     var func = this;
     var args = slice.apply(arguments);
 
@@ -15,9 +11,6 @@
     };
   };
 
-  Function.prototype.apartial = function () {
-    // TODO: Implement
-  };
 
   Function.prototype.apartial = function (self) {
     var func = this;
@@ -27,10 +20,6 @@
     return function () {
       return func.apply(self, args.concat(slice.apply(arguments)));
     };
-  };
-
-  Object.prototype.partial = function (funcName) {
-    // TODO: Implement
   };
 
   Object.prototype.partial = function (funcName) {
