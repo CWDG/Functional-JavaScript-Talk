@@ -50,10 +50,31 @@
 
   Sample.whatTheFuncOut = Sample.whatTheFunc(Sample.whatTheFuncData)('What')('the');
 
-  return context.Sample = Sample;
+  Sample.add = function () {
+    console.log(this);
+    var sum = 0;
+    for (var i = 0, len = arguments.length; i < len; i++) {
+      sum += arguments[i];
+    }
+    return sum;
+  };
 
   var val = 2;
   Sample.hash = {2: 'A', 6: 'B', 9: 'C', '2': 'D'};
   Sample.hashAccess1 = {2: 'A', 6: 'B', 9: 'C', '2': 'D'}[val];
   Sample.hashAccess2 = Sample.hash[val];
+
+  return context.Sample = Sample;
 })(this)
+
+Function.prototype.partial = function () {
+  // slice is shorter and I am a lazy.
+  var slice = Array.prototype.slice;
+  var func = this;
+  var args = slice.apply(arguments);
+
+  return function () {
+    debugger
+    return func.apply(this, args.concat(slice.apply(arguments)));
+  };
+};
